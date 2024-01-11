@@ -3,21 +3,19 @@ const userInputString = prompt(
     'vanilla,coffee,tart'
   );
 
-  const froyoOrder = {
-    vanilla: 0,
-    coffee: 0,
-    tart: 0,
-  }
+  const flavors = {};
   
   const orderArray = userInputString.split(",");
   
-  const flavors = [];
   for (let i = 0; i < orderArray.length; i++) {
-    const str = orderArray[i];
-    const flavor = str;
-    flavors.push(flavor);
-  }
+    const flavor = orderArray[i];
+    if (flavors[flavor] === undefined) {
+        flavors[flavor] = 0
+    }
+    flavors[flavor] = flavors[flavor] + 1
+  };
 
+  console.table(flavors);
 
 
 
